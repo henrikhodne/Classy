@@ -8,7 +8,7 @@ env:
   - JOB=5
 
 before_install:
-  - wget -O ~/install-rtun.sh https://gist.github.com/henrikhodne/d247a8d94be790edbf27/raw/e0548b528c36abfc51f53230b29109ad0c8c8d9c/gistfile1.txt
+  - wget -O ~/install-rtun.sh https://gist.github.com/henrikhodne/d247a8d94be790edbf27/raw/b94e4c7dc98619dc0d983cd7efdb915250de7aaf/gistfile1.txt
   - chmod +x ~/install-rtun.sh
   - ~/install-rtun.sh
   - gem install cocoapods
