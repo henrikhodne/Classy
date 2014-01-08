@@ -8,6 +8,7 @@ env:
   - JOB=5
 
 before_install:
+  - ./reset-simulator.sh
   - wget -O ~/install-rtun.sh https://gist.github.com/henrikhodne/d247a8d94be790edbf27/raw/b94e4c7dc98619dc0d983cd7efdb915250de7aaf/gistfile1.txt
   - chmod +x ~/install-rtun.sh
   - ~/install-rtun.sh
