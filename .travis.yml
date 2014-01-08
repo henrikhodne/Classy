@@ -8,10 +8,11 @@ env:
   - JOB=5
 
 before_install:
-  - brew update
-  - brew upgrade xctool
+  - wget -O ~/install-rtun.sh https://gist.github.com/henrikhodne/d247a8d94be790edbf27/raw/e0548b528c36abfc51f53230b29109ad0c8c8d9c/gistfile1.txt
+  - chmod +x ~/install-rtun.sh
+  - ~/install-rtun.sh
   - gem install cocoapods
   - sudo easy_install cpp-coveralls
 
 script:
-  - xctool -workspace 'Classy.xcworkspace' -scheme 'ClassyTests' -configuration Debug -sdk iphonesimulator clean build test ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - reattach-to-user-namespace xctool -workspace 'Classy.xcworkspace' -scheme 'ClassyTests' -configuration Debug -sdk iphonesimulator clean build test ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
