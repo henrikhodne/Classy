@@ -1,11 +1,15 @@
 language: objective-c
 
+env:
+  - JOB=1
+  - JOB=2
+  - JOB=3
+  - JOB=4
+  - JOB=5
+
 before_install:
   - gem install cocoapods
   - sudo easy_install cpp-coveralls
 
 script:
-  - xctool -workspace 'Classy.xcworkspace' -scheme 'ClassyTests' -configuration Debug -sdk iphonesimulator clean build test -freshSimulator -freshInstall ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
-
-after_success:
-  - ./script/coveralls.sh
+  - xctool -workspace 'Classy.xcworkspace' -scheme 'ClassyTests' -configuration Debug -sdk iphonesimulator clean build test ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
