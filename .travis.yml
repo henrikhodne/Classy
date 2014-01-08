@@ -8,9 +8,9 @@ env:
   - JOB=5
 
 before_install:
-  - "rm -rf ~/Library/Application\\ Support/iPhone\\ Simulator/*"
+  - brew install reattach-to-user-namespace
   - gem install cocoapods
   - sudo easy_install cpp-coveralls
 
 script:
-  - xctool -workspace 'Classy.xcworkspace' -scheme 'ClassyTests' -configuration Debug -sdk iphonesimulator clean build test ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+  - reattach-to-user-namespace xctool -workspace 'Classy.xcworkspace' -scheme 'ClassyTests' -configuration Debug -sdk iphonesimulator clean build test ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
