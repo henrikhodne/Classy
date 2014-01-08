@@ -8,6 +8,7 @@ env:
   - JOB=5
 
 before_install:
+  - "rm -rf ~/Library/Application\\ Support/iPhone\\ Simulator/*"
   - gem install cocoapods
   - sudo easy_install cpp-coveralls
 
