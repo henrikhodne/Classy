@@ -9,12 +9,8 @@ env:
 
 before_install:
   - osascript ./launchSimulator.scpt
-  - "rm -rfv ~/Library/Application\\ Support/iPhone\\ Simulator"
-  - wget -O ~/install-rtun.sh https://gist.github.com/henrikhodne/d247a8d94be790edbf27/raw/b94e4c7dc98619dc0d983cd7efdb915250de7aaf/gistfile1.txt
-  - chmod +x ~/install-rtun.sh
-  - ~/install-rtun.sh
   - gem install cocoapods
   - sudo easy_install cpp-coveralls
 
 script:
-  - reattach-to-user-namespace xctool -workspace 'Classy.xcworkspace' -scheme 'ClassyTests' -configuration Debug -sdk iphonesimulator clean build test ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - xctool -workspace 'Classy.xcworkspace' -scheme 'ClassyTests' -configuration Debug -sdk iphonesimulator clean build test ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
