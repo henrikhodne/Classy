@@ -6,6 +6,11 @@ env:
   - JOB=3
   - JOB=4
   - JOB=5
+  - JOB=6
+  - JOB=7
+  - JOB=8
+  - JOB=9
+  - JOB=10
 
 before_install:
   - osascript -e 'set simpath to "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app/Contents/MacOS/iPhone Simulator" as POSIX file' -e 'tell application "Finder"' -e 'open simpath' -e 'end tell'
