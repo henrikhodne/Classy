@@ -8,7 +8,7 @@ env:
   - JOB=5
 
 before_install:
-  - osascript ./launchSimulator.scpt
+  - osascript -e 'set simpath to "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app/Contents/MacOS/iPhone Simulator" as POSIX file' -e 'tell application "Finder"' -e 'open simpath' -e 'end tell'
   - gem install cocoapods
   - sudo easy_install cpp-coveralls
 
